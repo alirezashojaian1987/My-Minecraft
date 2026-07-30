@@ -1,39 +1,97 @@
 @use "../../styles/variables.scss" as *;
 
 .Header{
-    width:100%;
-    min-height:80px;
-    background-color: $Header;
-    padding:0 1.5rem;
+  width:100%;
+  min-height: 80px;
+  padding: 0 2rem;
 
+  background: $Header;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid $Border-color;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .Logo_container, .Right_placeholder{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    width: 220px;
 
-    .Logo_container, .Right_placeholder{
-        display: flex;
-        align-items: center;
-        width: 220px;
+    .Logo{
+      height:50px;
+      object-fit: contain;
+      user-select: none;
+      pointer-events: none;
+      filter: drop-shadow(0 0 12px $Primary_glow);
+      transition: transform 0.3s ease, filter 0.3s ease;
 
-        .Logo{
-            height:50px;
-            object-fit: contain;
-            user-select: none;
-            pointer-events: none;
-        }
-
+      &:hover{
+        transform: scale(1.06) rotate(-1deg);
+        filter:drop-shadow(0 0 20px $Primary_glow);
+      }
     }
-    
-    .Title{
-        flex: 1;
-        color:white;
-        text-align: center;
-        font-size: 2rem;
-        font-weight: 700;
-        font-family: "Rubik", sans-serif;
-        span{
-            color:$Primary_color;
-        }
+  }
+
+  .Right_placeholder{
+    visibility: hidden;
+  }
+
+  .Title{
+    flex:1;
+    color: $Text-primary;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family: "Rubik", sans-serif;
+    letter-spacing: -0.5px;
+    margin: 0;
+    line-height: 1.2;
+
+    span{
+      color:$Primary_color;
+      text-shadow: 0 0 25px $Primary_glow, 0 0 50px rgba(123, 203, 90, 0.15);
+      transition: text-shadow 0.3s ease;
     }
+
+    &:hover span {
+      text-shadow: 0 0 35px $Primary_glow, 0 0 70px rgba(123, 203, 90, 0.25);
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    min-height: 70px;
+
+    .Logo_container,
+    .Right_placeholder {
+      width: 120px; // reduce placeholder width on smaller screens
+    }
+
+    .Logo_container .Logo {
+      height: 40px;
+    }
+
+    .Title {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .Logo_container,
+    .Right_placeholder {
+      width: 70px;
+    }
+
+    .Logo_container .Logo {
+      height: 32px;
+    }
+
+    .Title {
+      font-size: 1.1rem;
+    }
+  }
 }
