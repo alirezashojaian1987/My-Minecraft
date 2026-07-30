@@ -1,0 +1,39 @@
+@use "../../styles/variables.scss" as *;
+
+.Header{
+    width:100%;
+    min-height:80px;
+    background-color: $Header;
+    padding:0 1.5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+    .Logo_container, .Right_placeholder{
+        display: flex;
+        align-items: center;
+        width: 220px;
+
+        .Logo{
+            height:50px;
+            object-fit: contain;
+            user-select: none;
+            pointer-events: none;
+        }
+
+    }
+    
+    .Title{
+        flex: 1;
+        color:white;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        font-family: "Rubik", sans-serif;
+        span{
+            color:$Primary_color;
+        }
+    }
+}

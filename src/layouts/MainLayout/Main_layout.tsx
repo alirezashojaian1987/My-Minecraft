@@ -1,23 +1,23 @@
 import { Outlet } from "react-router-dom";
-
 import styles from "./Main_layout.module.scss";
+
+//Components
+import Header from "../../components/Header";
 
 export default function Main_layout(){
     return(
         <div className={styles.layout}>
-            <aside className={styles.sidebar}>
-                Sidebar
-            </aside>
+            <Header/>
 
-            <div className={styles.right_section}>
-                <header className={styles.header}>
-                    Header
-                </header>
+            <div className={styles.Main_content}>
+                <aside className={styles.Sidebar}>
+                    Sidebar
+                </aside>
 
-                <main className={styles.content}>
+                <main className={styles.Content}>
                     <Outlet/>
                 </main>
             </div>
         </div>
-    )
+    );
 }

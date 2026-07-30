@@ -2,29 +2,22 @@
 
 .layout {
     display: flex;
-    height: 100vh;
+    flex-direction: column;
 
-    .sidebar{
-        width: 260px;
-        background: $Sidebar_header;
-    }
+    background: $Background;
+    min-height: 100vh;
 
-    .right_section{
-        flex: 1;
+    .Main_content{
+        flex:1;
         display: flex;
-        flex-direction: column;
 
-        .header{
-            height: 80px;
-            background: $Header;
+        .Sidebar{
+            width:260px;
         }
-        
-        .content{
+
+        .Content{
             flex: 1;
-            background: $Background;
-            padding: 2rem;
+            padding:2rem;
         }
     }
 }
-
-
