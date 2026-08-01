@@ -57,41 +57,50 @@
       transition: text-shadow 0.3s ease;
     }
 
-    &:hover span {
+    &:hover span{
       text-shadow: 0 0 35px $Primary_glow, 0 0 70px rgba(123, 203, 90, 0.25);
     }
   }
 
-  @media (max-width: 768px) {
+  @media(max-width: 768px){
     padding: 0 1rem;
     min-height: 70px;
+    column-gap: 0.75rem;
 
-    .Logo_container,
-    .Right_placeholder {
-      width: 120px; // reduce placeholder width on smaller screens
-    }
-
-    .Logo_container .Logo {
+    .Logo_container .Logo{
       height: 40px;
     }
 
-    .Title {
+    .Title{
       font-size: 1.5rem;
     }
   }
 
-  @media (max-width: 480px) {
-    .Logo_container,
-    .Right_placeholder {
-      width: 70px;
-    }
+  @media(max-width: 480px){
+    padding: 0 0.75rem;
+    min-height: 60px;
+    column-gap: 0.5rem;
 
-    .Logo_container .Logo {
+    .Logo_container .Logo{
       height: 32px;
     }
 
-    .Title {
+    .Title{
       font-size: 1.1rem;
+    }
+  }
+
+  @media(max-width: 360px){
+    padding: 0 0.4rem;
+    column-gap: 0.3rem;
+
+    .Logo_container .Logo{
+      height: 26px;
+    }
+
+    .Title{
+      font-size: 0.9rem;
+      letter-spacing: -0.2px;
     }
   }
 }

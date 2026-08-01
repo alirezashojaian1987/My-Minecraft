@@ -12,7 +12,6 @@ export default function Header(){
                     alt="Minecraft logo"
                     className={styles.Logo}
                 />
-
             </div>
 
             <h1 className={styles.Title}><span>Mine</span> Panel</h1>
