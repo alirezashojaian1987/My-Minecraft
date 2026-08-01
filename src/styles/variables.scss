@@ -1,9 +1,12 @@
-$Background:#ffffff;
-$Sidebar_header:#3E3E3E;
-// $Header:#5A5A5A;
-$Header: rgba(20, 20, 32, 0.85);
-$Primary_color:#76C043;
-$Primary_glow: rgba(123, 203, 90, 0.3);
-$Text-primary: #f0f0f5;
-$Text-secondary: #b0b0c8;
-$Border-color: rgba(123, 203, 90, 0.12);
+$Background: #f8f9fc;
+$Sidebar_header: #3e3e3e;
+$Header: rgba(255, 255, 255, 0.85);
+$Primary_color: #76c043;
+$Primary_glow: rgba(118, 192, 67, 0.25);
+$Text-primary: #1a1a2e;
+$Text-secondary: #6b6b80;
+$Border-color: rgba(118, 192, 67, 0.15);
+
+$Sidebar-hover: rgba(118, 192, 67, 0.06);
+$Sidebar-active: rgba(118, 192, 67, 0.10);
+$Sidebar-width: 260px;
