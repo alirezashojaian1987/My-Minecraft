@@ -1,19 +1,65 @@
+// Main_layout.module.scss
 @use "../../styles/variables.scss" as *;
 
 .layout {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  background: $Background;
+  min-height: 100vh;
+}
 
-    background: $Background;
-    min-height: 100vh;
+.Main_content {
+  flex: 1;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
 
-    .Main_content{
-        flex:1;
-        display: flex;
+.SidebarWrapper {
+  flex-shrink: 0;
+  width: $Sidebar-width;
+  transition: transform 0.3s ease, margin 0.3s ease;
+  transform: translateX(0);
+  margin-right: 0;
 
-        .Content{
-            flex: 1;
-            padding:2rem;
-        }
+  @media (max-width: 768px){
+    position: fixed;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    transform: translateX(-100%);
+    margin-right: 0;
+    width: $Sidebar-width;
+    box-shadow: 2px 0 12px rgba(0,0,0,0.1);
+    background: $Sidebar_bg;
+    border-right: none;
+    transition: transform 0.3s ease;
+
+    &.Open {
+      transform: translateX(0);
     }
+  }
+}
+
+.Overlay {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+}
+
+.Content {
+  flex: 1;
+  padding: 2rem;
+  background: $Background;
+  min-width: 0;
+  transition: margin-left 0.3s ease;
 }

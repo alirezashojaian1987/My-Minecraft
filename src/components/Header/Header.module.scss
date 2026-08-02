@@ -16,6 +16,30 @@
   justify-content: space-between;
   align-items: center;
 
+  .Logo_container{
+    .MenuButton{
+      display: none;
+      background: none;
+      border:none;
+      color:$Text-secondary;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding:0.25rem 0.5rem;
+      transition: color 0.25s;
+
+      &:hover{
+        color:$Text-primary;
+      }
+    }
+
+    @media(max-width:768px){
+      .MenuButton{
+        display: flex;
+        align-self: center;
+      }
+    }
+  }
+
   .Logo_container, .Right_placeholder{
     display: flex;
     align-items: center;
