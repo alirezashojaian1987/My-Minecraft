@@ -1,13 +1,25 @@
 $Background: #f8f9fc;
-$Sidebar_bg: #ffffff;
-$Sidebar_header: #3e3e3e;
 $Header: rgba(255, 255, 255, 0.85);
 $Primary_color: #76c043;
 $Primary_glow: rgba(118, 192, 67, 0.25);
 $Text-primary: #1a1a2e;
 $Text-secondary: #6b6b80;
 $Border-color: rgba(118, 192, 67, 0.15);
+
+//sidebar
+$Sidebar_bg: #ffffff;
+$Sidebar_header: #3e3e3e;
 $Sidebar-border: rgba(0, 0, 0, 0.06);
 $Sidebar-hover: rgba(118, 192, 67, 0.06);
 $Sidebar-active: rgba(118, 192, 67, 0.10);
 $Sidebar-width: 260px;
+
+$Surface: #ffffff;
+$Grass-green: #7cb342;
+$Dirt-brown: #8d6e63;
+$Stone-gray: #78909c;
+$Deep-stone: #37474f;
+
+// Accents
+$Grass-glow: rgba(124, 179, 66, 0.2);
+$Ore-gold: #ffd54f;

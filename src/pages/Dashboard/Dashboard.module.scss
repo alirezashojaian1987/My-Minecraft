@@ -1,0 +1,210 @@
+@use "../../styles/variables.scss" as *;
+
+.Dashboard{
+    background: #f5f0e8;
+    padding:2rem;
+    min-height: 100vh;
+
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size:24px 24px;
+    background-position: -1px -1px;
+
+    .Hero{
+        padding:2rem 2.5rem;
+        background: rgba(255,255,255,0.7);
+        backdrop-filter:blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-radius: 15px;
+        border:2px solid rgba($Primary_color, 0.15);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+        margin-bottom: 3rem;
+        position: relative;
+
+        &::after{
+            content:'';
+            position: absolute;
+            bottom:-2px;
+            left:2.5rem;
+            width:120px;
+            height: 4px;
+            background: $Primary_color;
+            border-radius: 2px;
+            box-shadow: 0 0 20px $Primary_color;
+        }
+
+        h1{
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color:$Text-primary;
+            margin-bottom: 0.5rem;
+
+            &::before{
+                content: '▶ ';
+                color: $Primary_color;
+                font-size: 2rem;
+            }
+        }
+
+        p{
+            font-size: 1.1rem;
+            color: $Text-secondary;
+            max-width: 650px;
+            line-height: 1.7;
+            padding-left: 2.5rem;
+        }
+    }
+
+    .quick_links{
+        margin-bottom: 3rem;
+        h2{
+            font-size:1.6rem;
+            font-weight: 700;
+            color:$Primary_color;
+            
+            display: flex;
+            align-items: center;
+            gap:0.75rem;
+            margin-bottom: 1.5rem;
+
+            &::before{
+                content:'🟩';
+                font-size: 2rem;
+                filter: drop-shadow(0 2px 8px $Primary_glow);
+                line-height: 1;
+            }
+        }
+
+        .card_grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap:1.5rem;
+
+            .link_card{
+                background: white;
+                border-radius: 16px;
+                padding:2rem 1.5rem;
+                text-align: center;
+                text-decoration: none;
+                border:2px solid rgba(0, 0, 0, 0.06);
+                transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                cursor: pointer;
+
+                box-shadow:
+                    0 4px 0 rgba(0, 0, 0, 0.05),
+                    0 8px 24px rgba(0, 0, 0, 0.04);
+                
+                position: relative;
+
+                &::before{
+                    content:'';
+                    position: absolute;
+                    top:0; left:0; right:0;
+
+                    height:3px;
+                    background: linear-gradient(90deg, transparent, $Primary_color, transparent);       
+                    opacity: 0;
+                    transition:opacity 0.3s ease;
+                    border-radius: 16px 16px 0 0;
+                }
+
+                &::after{
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    border-radius: 16px;
+                    background: linear-gradient(145deg, rgba(255,255,255,0.4) 0%, transparent 50%, rgba(0,0,0,0.02) 100%);
+                    pointer-events: none;
+                }
+
+                &:hover{
+                    transform: translateY(-6px) scale(1.01);
+                    border-color: $Primary_color;
+                    box-shadow: 
+                        0 6px 0 $Primary_color,
+                        0 20px 50px rgba($Primary_color, 0.15);
+
+                    &::before {
+                        opacity: 1;
+                    }
+
+                    .Icon {
+                        transform: scale(1.15) rotate(-4deg);
+                        color: $Primary_color;
+                    }
+
+                    h3 {
+                        color: $Primary_color;
+                    }
+                }
+
+                .Icon{
+                    font-size: 3rem;
+                    color: $Primary_color;
+                    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+                    filter: drop-shadow(0 4px 8px $Primary_glow);
+                    position: relative;
+                    z-index: 1;
+                }
+
+                h3{
+                    margin-top: 1.2rem;
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: $Text-primary;
+                    transition: color 0.3s ease;
+                    position: relative;
+                    z-index: 1;
+                }
+
+                span{
+                    display: inline-block;
+                    margin-top: 0.5rem;
+                    padding: 0.25rem 1rem;
+                    background: rgba($Primary_color, 0.08);
+                    border-radius: 20px;
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    color: $Text-secondary;
+                    position: relative;
+                    z-index: 1;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px){
+        padding: 1.5rem;
+
+      .Hero{
+        padding: 1.5rem;
+        h1 { font-size: 2rem; }
+        p { font-size: 1rem; padding-left: 2rem; }
+        &::after { left: 1.5rem; width: 80px; }
+      }
+    
+      .quick_links {
+        h2 { font-size: 1.4rem; }
+        .card_grid { gap: 1rem; }
+        .link_card { padding: 1.5rem 1rem; }
+      }
+    }
+    
+    @media (max-width: 480px) {
+      padding: 1rem;
+    
+      .Hero {
+        padding: 1rem;
+        h1 { font-size: 1.6rem; }
+        p { font-size: 0.9rem; padding-left: 0; }
+        &::before { display: none; }
+      }
+    
+      .quick_links {
+        .card_grid { grid-template-columns: 1fr; }
+        .link_card { padding: 1.5rem; }
+      }
+    }
+}

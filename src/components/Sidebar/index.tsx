@@ -28,7 +28,7 @@ export default function Sidebar(){
             </nav>
 
             <footer className={styles.Footer}>
-                Mine Panel v1.0
+                v1.0.0
             </footer>
         </aside>
     );
