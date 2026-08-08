@@ -2,7 +2,7 @@
 
 .Header{
   width:100%;
-  min-height: 80px;
+  height: 80px;
   padding: 0 2rem;
 
   background: $Header;
@@ -15,6 +15,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .Logo_container{
+    .MenuButton{
+      display: none;
+      background: none;
+      border:none;
+      color:$Text-secondary;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding:0.25rem 0.5rem;
+      transition: color 0.25s;
+
+      &:hover{
+        color:$Text-primary;
+      }
+    }
+
+    @media(max-width:768px){
+      .MenuButton{
+        display: flex;
+        align-self: center;
+      }
+    }
+  }
 
   .Logo_container, .Right_placeholder{
     display: flex;
@@ -63,8 +87,12 @@
   }
 
   @media(max-width: 768px){
+    position: sticky;
+    top:0;
+    z-index: 100;
+
     padding: 0 1rem;
-    min-height: 70px;
+    height: 70px;
     column-gap: 0.75rem;
 
     .Logo_container .Logo{
