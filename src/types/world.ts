@@ -1,4 +1,4 @@
-export interface Coordinate{
+export interface Coordinates{
     id:string;
     name:string;
     x:number;
@@ -10,5 +10,5 @@ export interface World{
     id:string;
     title:string;
     type:"Survival" | "Creative" | "Adventure" | "Hardcore";
-    coordinate:Coordinate[];
+    coordinates:Coordinates[];
 };
