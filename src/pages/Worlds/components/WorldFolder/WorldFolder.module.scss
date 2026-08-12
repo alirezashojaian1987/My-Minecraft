@@ -1,0 +1,154 @@
+@use "../../../../styles/variables.scss" as *;
+
+.WorldFolder{
+    background: White;
+    border:2px solid rgba(0,0,0,0.06);
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    overflow: hidden;
+    transition: all 0.25s ease-in-out;
+
+    &:hover{
+        border-color: rgba($Primary_color,0.2);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .Header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding:1rem 1.5rem;
+        cursor: pointer;
+        transition: all 0.25s ease-in-out;
+
+        &:hover{
+            background: rgba($Primary_color,0.03);
+        }
+
+        .Left{
+            display: flex;
+            align-items: center;
+            gap:0.75rem;
+            flex:1;
+            min-width:0;
+
+            .Arrow{
+                font-size: 0.8rem;
+                color:$Text-secondary;
+                transition: transform 0.25s ease-in-out;
+                flex-shrink: 0;
+            }
+
+            .Icon{
+                font-size: 1.4rem;
+                flex-shrink: 0;
+            }
+
+            .Title{
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: $Text-primary;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .EditInput{
+                font-size: 1.1rem;
+                font-weight: 600;
+                color:$Text-primary;
+                background: rgba($Primary_color,0.06);
+                border:2px solid $Primary_color;
+                border-radius: 6px;
+                padding:0.2rem 0.6rem;
+                outline:none;
+                font-family: inherit;
+                width:auto;
+                min-width: 150px;
+
+                &:focus{
+                    box-shadow: 0 0 0 3px $Primary_glow;
+                }
+            }
+        }
+
+        .Right{
+            display: flex;
+            align-items: center;
+            gap:0.6rem;
+            flex-shrink: 0;
+
+            .Badge{
+                font-size: 0.7rem;
+                font-weight: 600;
+                padding: 0.2rem 0.7rem;
+                border-radius: 20px;
+                background: rgba($Primary_color, 0.1);
+                color: $Primary_color;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+
+            .Count{
+                font-size: 0.8rem;
+                color: $Text-secondary;
+                background: rgba(0, 0, 0, 0.04);
+                padding: 0.2rem 0.7rem;
+                border-radius: 20px;
+            }
+
+            .EditBtn, .DeleteBtn{
+                background: none;
+                border: none;
+                cursor: pointer;
+                font-size: 1.1rem;
+                padding: 0.2rem 0.3rem;
+                border-radius: 6px;
+                transition: all 0.2s ease;
+                opacity: 0.4;
+
+                &:hover{
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+            }
+
+            .EditBtn:hover{
+                background: rgba($Primary_color, 0.1);     
+            }
+
+            .DeleteBtn:hover{
+                background: rgba(255, 0, 0, 0.08);     
+            }
+        }
+    }
+
+    .Content{
+        padding: 0.5rem 1.5rem 1.5rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    @media (max-width: 480px) {
+        .Header {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+
+            .Left {
+                flex: 1 1 100%;
+                .Title { font-size: 1rem; }
+            }
+
+            .Right{
+                flex-wrap: wrap;
+                gap: 0.3rem;
+                .Badge { font-size: 0.65rem; }
+                .Count { font-size: 0.7rem; }
+            }
+        }
+
+        .Content {
+            padding: 0.5rem 1rem 1rem;
+        }
+    }
+}
