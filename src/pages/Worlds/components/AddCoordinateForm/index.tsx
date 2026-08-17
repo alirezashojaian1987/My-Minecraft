@@ -29,7 +29,7 @@ export default function AddCoordinateForm({onAdd, onCancel}:AddCoordinateFormPro
     };
 
     return(
-        <div className={styles.AddCoordinateForm} onSubmit={handleSubmit}>
+        <form className={styles.AddCoordinateForm} onSubmit={handleSubmit}>
             <div className={styles.Fields}>
                 <input
                     className={styles.NameInput}
@@ -73,6 +73,6 @@ export default function AddCoordinateForm({onAdd, onCancel}:AddCoordinateFormPro
                     Cancel
                 </button>
             </div>
-        </div>
+        </form>
     );
 }

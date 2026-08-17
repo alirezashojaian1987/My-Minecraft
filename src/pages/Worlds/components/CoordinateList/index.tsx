@@ -9,7 +9,7 @@ interface CoordinateListProps{
     worldId:string;
     coordinates:Coordinates[];
     onAdd:(worldId:string, name:string, x:number, y:number, z:number)=>void;
-    onDelete:(worldId:string, name:string)=>void;
+    onDelete:(worldId:string, coordId:string)=>void;
     onEdit:(worldId:string, coordId:string, name:string, x:number, y:number, z:number)=>void;
 }
 
@@ -27,7 +27,7 @@ export default function CoordinateList({worldId, coordinates, onAdd, onDelete, o
                     {coordinates.map(coord=>(
                         <CoordinateItem
                             key={coord.id}
-                            coordinates={coord}
+                            coordinate={coord}
                             onDelete={()=>onDelete(worldId, coord.id)}
                             onEdit={(name,x,y,z)=>onEdit(worldId, coord.id, name, x, y, z)}
                         />
