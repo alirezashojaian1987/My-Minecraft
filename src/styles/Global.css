@@ -1,6 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rubik:wght@500;700&display=swap");
 @import "tailwindcss";
-@import "./Variables.css";
+
+@theme {
+    --color-background: #f8f9fc;
+    --color-header: rgba(255, 255, 255, 0.85);
+    --color-primary: #76c043;
+    --color-primary-glow: rgba(118, 192, 67, 0.25);
+    --color-text-primary: #1a1a2e;
+    --color-text-secondary: #6b6b80;
+    --color-border: rgba(118, 192, 67, 0.15);
+
+    --color-sidebar-bg: #ffffff;
+    --color-sidebar-header: #3e3e3e;
+    --color-sidebar-border: rgba(0, 0, 0, 0.06);
+    --color-sidebar-hover: rgba(118, 192, 67, 0.06);
+    --color-sidebar-active: rgba(118, 192, 67, 0.10);
+
+    --width-sidebar: 260px;
+
+    --color-surface: #ffffff;
+    --color-grass-green: #7cb342;
+    --color-dirt-brown: #8d6e63;
+    --color-stone-gray: #78909c;
+    --color-deep-stone: #37474f;
+
+    --color-grass-glow: rgba(124, 179, 66, 0.2);
+    --color-ore-gold: #ffd54f;
+}
 
 *{
     margin:0;
