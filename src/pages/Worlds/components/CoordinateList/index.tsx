@@ -6,11 +6,11 @@ import type {Coordinates} from "../../../../types/world";
 import styles from "./CoordinateList.module.scss";
 
 interface CoordinateListProps{
-    worldId:string;
+    worldId:string | number;
     coordinates:Coordinates[];
-    onAdd:(worldId:string, name:string, x:number, y:number, z:number)=>void;
-    onDelete:(worldId:string, coordId:string)=>void;
-    onEdit:(worldId:string, coordId:string, name:string, x:number, y:number, z:number)=>void;
+    onAdd:(worldId: string | number, name: string, x: number, y: number, z: number)=>void;
+    onDelete:(worldId: string | number, coordId: string | number)=>void;
+    onEdit:(worldId: string | number, coordId: string | number, name: string, x: number, y: number, z: number)=>void;
 }
 
 export default function CoordinateList({worldId, coordinates, onAdd, onDelete, onEdit}:CoordinateListProps){
