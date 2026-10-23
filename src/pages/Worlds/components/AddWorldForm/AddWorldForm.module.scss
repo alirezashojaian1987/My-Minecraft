@@ -32,6 +32,25 @@
       }
     }
 
+    .SeedInput {
+      flex: 1;
+      min-width: 180px;
+      padding: 0.6rem 1rem;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: $Text-primary;
+      background: #fafafa;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &:focus {
+        border-color: $Primary_color;
+        box-shadow: 0 0 0 3px $Primary_glow;
+        background: white;
+      }
+    }
+
     .TypeSelect {
       padding: 0.6rem 1rem;
       border: 2px solid rgba(0, 0, 0, 0.08);

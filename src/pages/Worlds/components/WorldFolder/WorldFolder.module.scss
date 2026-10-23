@@ -44,30 +44,71 @@
                 flex-shrink: 0;
             }
 
-            .Title{
-                font-size: 1.1rem;
-                font-weight: 600;
-                color: $Text-primary;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
+            .TitleGroup{
+                display: flex;
+                align-items: baseline;
+                gap:0.75rem;
+                min-width: 0;
+                flex-wrap: wrap;
+
+                .Title{
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: $Text-primary;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                .Seed{
+                    font-size:0.8rem;
+                    color:$Text-secondary;
+                    background: rgba($Primary_color,0.07);
+                    padding: 0.15rem 0.55rem;
+                    border-radius: 6px;
+                    white-space: nowrap;
+                }
             }
 
-            .EditInput{
-                font-size: 1.1rem;
-                font-weight: 600;
-                color:$Text-primary;
-                background: rgba($Primary_color,0.06);
-                border:2px solid $Primary_color;
-                border-radius: 6px;
-                padding:0.2rem 0.6rem;
-                outline:none;
-                font-family: inherit;
-                width:auto;
-                min-width: 150px;
+            .EditRow{
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                flex: 1;
+                min-width: 0;
 
-                &:focus{
-                    box-shadow: 0 0 0 3px $Primary_glow;
+                .EditInput{
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color:$Text-primary;
+                    background: rgba($Primary_color,0.06);
+                    border:2px solid $Primary_color;
+                    border-radius: 6px;
+                    padding:0.2rem 0.6rem;
+                    outline:none;
+                    font-family: inherit;
+                    flex:1;
+                    min-width: 130px;
+    
+                    &:focus{
+                        box-shadow: 0 0 0 3px $Primary_glow;
+                    }
+                }
+
+                .EditSeed{
+                    font-size:0.85rem;
+                    color:$Text-primary;
+                    background: rgba($Primary_color, 0.06);
+                    border: 2px solid $Primary_color;
+                    border-radius: 6px;
+                    padding: 0.2rem 0.6rem;
+                    outline: none;
+                    flex: 1;
+                    min-width: 110px;
+
+                    &:focus{
+                        box-shadow: 0 0 0 3px $Primary_glow;
+                    }
                 }
             }
         }
@@ -137,6 +178,18 @@
             .Left {
                 flex: 1 1 100%;
                 .Title { font-size: 1rem; }
+                
+                .EditRow{
+                    flex-wrap: wrap;
+                    .EditInput,
+                    .EditSeed { min-width: 100%; }
+                }
+
+                .TitleGroup{
+                    gap: 0.4rem;
+                    .Title { font-size: 0.95rem; }
+                    .Seed { font-size: 0.7rem; }
+                }
             }
 
             .Right{

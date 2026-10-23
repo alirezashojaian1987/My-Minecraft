@@ -16,6 +16,7 @@ const initialWorlds:World[]=[
         id:'1',
         title:"My survival world",
         type:"Survival",
+        seed: "8473920184756",
         coordinates:[
             {id:"c1", name:"Village", x:122, y:57, z:-245},
             {id:"c2", name:"Mansion", x:145, y:66, z:200}
@@ -26,6 +27,7 @@ const initialWorlds:World[]=[
         id:'2',
         title:"Creative test",
         type:"Creative",
+        seed: "8473920184756",
         coordinates:[
             {id:"c3", name:"Base", x:0, y:64, z:0},
         ]
@@ -35,6 +37,7 @@ const initialWorlds:World[]=[
         id:'3',
         title:"Hardcore run",
         type:"Hardcore",
+        seed: "8473920184756",
         coordinates:[],
     },
 ];
@@ -44,11 +47,12 @@ export default function Worlds(){
     const [expandedId, setExpandedId]=useState<string | null>(null);
     const [showAddForm, setShowAddForm]=useState(false);
 
-    const handleAddWorld=(title:string, type:World['type'])=>{
+    const handleAddWorld=(title:string, type:World['type'], seed:string)=>{
         const newWorld:World={
             id:Date.now().toString(),
             title,
             type,
+            seed,
             coordinates:[],
         };
 
@@ -64,9 +68,9 @@ export default function Worlds(){
         }
     };
 
-    const handleEditWorld=(id:string, newTitle:string)=>{
+    const handleEditWorld=(id:string, newTitle:string, newSeed:string)=>{
         setWorlds(worlds.map(w=>
-            w.id===id ? {...w,title:newTitle} : w
+            w.id===id ? {...w,title:newTitle, seed: newSeed} : w
         ));
     };
 

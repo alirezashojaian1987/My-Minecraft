@@ -4,20 +4,22 @@ import type { World } from "../../../../types/world";
 import styles from "./AddWorldForm.module.scss";
 
 interface AddWorldFormProps{
-    onAdd:(title:string, type:World['type'])=>void;
+    onAdd:(title:string, type:World['type'], seed:string)=>void;
     onCancel:()=>void;
 }
 
 export default function AddWorldForm({onAdd, onCancel}:AddWorldFormProps){
     const [title,setTitle]=useState('');
     const [type,setType]=useState<World['type']>('Survival');
+    const [seed, setSeed] = useState('');
 
     const handleSubmit=(e: React.FormEvent)=>{
         e.preventDefault();
         if (title.trim()) {
-            onAdd(title.trim(), type);
+            onAdd(title.trim(), type, seed.trim() || "Random");
             setTitle('');
             setType('Survival');
+            setSeed('');
         }
     };
 
@@ -30,6 +32,13 @@ export default function AddWorldForm({onAdd, onCancel}:AddWorldFormProps){
                     onChange={(e)=>setTitle(e.target.value)}
                     placeholder="World name..."
                     autoFocus
+                />
+
+                <input
+                    className={styles.SeedInput}
+                    value={seed}
+                    onChange={(e) => setSeed(e.target.value)}
+                    placeholder="Seed (optional)"
                 />
 
                 <select

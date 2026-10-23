@@ -10,5 +10,6 @@ export interface World{
     id:string;
     title:string;
     type:"Survival" | "Creative" | "Adventure" | "Hardcore";
+    seed:string;
     coordinates:Coordinates[];
 };

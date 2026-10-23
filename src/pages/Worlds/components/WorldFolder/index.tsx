@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import CoordinateList from "../CoordinateList";
-import type { World, Coordinates } from "../../../../types/world";
+import type { World } from "../../../../types/world";
 import styles from "./WorldFolder.module.scss";
 
 interface WorldFolderProps{
@@ -9,7 +9,7 @@ interface WorldFolderProps{
     isExpanded:boolean;
     onToggle:()=>void;
     onDelete:()=>void;
-    onEdit:(id:string, newTitle:string)=>void;
+    onEdit:(id:string, newTitle:string, newSeed:string)=>void;
     onAddCoordinate:(worldId:string, name:string, x:number, y:number, z:number)=>void;
     onDeleteCoordinate: (worldId: string, coordId: string)=>void;
     onEditCoordinate:(worldId:string, coordId:string, name:string, x:number, y:number, z:number)=>void;
@@ -32,12 +32,20 @@ const typeLabels={
 export default function WorldFolder({world, isExpanded, onToggle, onDelete, onEdit, onAddCoordinate, onDeleteCoordinate, onEditCoordinate}: WorldFolderProps){
   const [isEditing, setIsEditing]=useState(false);
   const [editTitle, setEditTitle]=useState(world.title);
+  const [editSeed, setEditSeed]=useState(world.seed);
 
   const handleEditSubmit=()=>{
     if(editTitle.trim()){
-      onEdit(world.id, editTitle.trim());
+      onEdit(world.id, editTitle.trim(), editSeed.trim() || 'Random');
       setIsEditing(false);
     }
+  };
+
+  const startEdit=(e: React.MouseEvent)=>{
+    e.stopPropagation();
+    setIsEditing(true);
+    setEditTitle(world.title);
+    setEditSeed(world.seed);
   };
 
   return(
@@ -48,17 +56,29 @@ export default function WorldFolder({world, isExpanded, onToggle, onDelete, onEd
             <span className={styles.Icon}>{typeIcons[world.type]}</span>
 
             {isEditing ? (
-              <input
-                className={styles.EditInput}
-                value={editTitle}
-                onChange={(e)=>setEditTitle(e.target.value)}
-                onBlur={handleEditSubmit}
-                onKeyDown={(e)=>e.key==='Enter' && handleEditSubmit()}
-                onClick={(e)=>e.stopPropagation()}
-                autoFocus
-              />
+              <div className={styles.EditRow} onClick={(e)=>e.stopPropagation()}>
+                <input
+                  className={styles.EditInput}
+                  value={editTitle}
+                  onChange={(e)=>setEditTitle(e.target.value)}
+                  onKeyDown={(e)=>e.key==='Enter' && handleEditSubmit()}
+                  onClick={(e)=>e.stopPropagation()}
+                  autoFocus
+                />
+
+                <input
+                  className={styles.EditSeed}
+                  value={editSeed}
+                  onChange={(e) => setEditSeed(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleEditSubmit()}
+                  placeholder="Seed"
+                />
+              </div>
             ) : (
-              <span className={styles.Title}>{world.title}</span>
+              <div className={styles.TitleGroup}>
+                <span className={styles.Title}>{world.title}</span>
+                <span className={styles.Seed}>🌱 {world.seed}</span>
+              </div>
             )}
           </div>
 
@@ -73,11 +93,7 @@ export default function WorldFolder({world, isExpanded, onToggle, onDelete, onEd
 
             <button
               className={styles.EditBtn}
-              onClick={(e)=>{
-                e.stopPropagation();
-                setIsEditing(true);
-                setEditTitle(world.title);
-              }}
+              onClick={startEdit}
               aria-label="Edit World"
             >
               ✏️
