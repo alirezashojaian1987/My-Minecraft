@@ -1,0 +1,163 @@
+@use "../../../../styles/variables.scss" as *;
+
+.CoordinateItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba($Primary_color, 0.04);
+  }
+
+  .Pin {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .Name {
+    font-weight: 500;
+    color: $Text-primary;
+    min-width: 80px;
+  }
+
+  .Coords {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    color: $Text-secondary;
+    background: rgba(0, 0, 0, 0.04);
+    padding: 0.15rem 0.6rem;
+    border-radius: 4px;
+    flex: 1;
+  }
+
+  .Actions {
+    display: flex;
+    gap: 0.3rem;
+    flex-shrink: 0;
+
+    .EditBtn,
+    .DeleteBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.1rem 0.3rem;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      opacity: 0.3;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    .EditBtn:hover {
+      background: rgba($Primary_color, 0.1);
+    }
+
+    .DeleteBtn:hover {
+      background: rgba(255, 0, 0, 0.08);
+    }
+  }
+
+  .NameInput {
+    padding: 0.2rem 0.5rem;
+    border: 2px solid $Primary_color;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: $Text-primary;
+    background: white;
+    outline: none;
+    flex: 1;
+    min-width: 80px;
+
+    &:focus {
+      box-shadow: 0 0 0 3px $Primary_glow;
+    }
+  }
+
+  .CoordInput {
+    padding: 0.2rem 0.4rem;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    color: $Text-primary;
+    background: white;
+    outline: none;
+    width: 60px;
+    text-align: center;
+
+    &:focus {
+      border-color: $Primary_color;
+      box-shadow: 0 0 0 3px $Primary_glow;
+    }
+  }
+
+  .SaveBtn,
+  .CancelBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  .SaveBtn:hover {
+    background: rgba($Primary_color, 0.1);
+  }
+
+  .CancelBtn:hover {
+    background: rgba(255, 0, 0, 0.08);
+  }
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0.4rem 0.6rem;
+
+    .Name {
+      min-width: 60px;
+      font-size: 0.9rem;
+    }
+
+    .Coords {
+      font-size: 0.8rem;
+      flex: 1 1 100%;
+      order: 3;
+    }
+
+    .Actions {
+      margin-left: auto;
+      order: 2;
+    }
+
+    .NameInput {
+      flex: 1 1 100%;
+      order: 1;
+    }
+
+    .CoordInput {
+      width: 50px;
+      font-size: 0.8rem;
+      order: 2;
+    }
+
+    .SaveBtn,
+    .CancelBtn {
+      order: 3;
+    }
+  }
+}

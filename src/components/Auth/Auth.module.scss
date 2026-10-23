@@ -1,0 +1,189 @@
+@use "../../styles/variables.scss" as *;
+
+.Auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+
+  background: #f5f0e8;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+
+  .Card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem 2rem;
+
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 2px solid rgba($Primary_color, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    overflow: hidden;
+
+    // Top glow bar
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, $Primary_color, transparent);
+    }
+  }
+
+  .Title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: $Text-primary;
+    margin-bottom: 0.5rem;
+
+    span {
+      color: $Primary_color;
+      text-shadow: 0 0 20px $Primary_glow;
+    }
+  }
+
+  .Subtitle {
+    text-align: center;
+    font-size: 0.9rem;
+    color: $Text-secondary;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+  }
+
+  .Form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .Field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $Text-secondary;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    input {
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: $Text-primary;
+      background: #fafafa;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      outline: none;
+      transition: all 0.2s ease;
+
+      &::placeholder {
+        color: #b0b0c0;
+      }
+
+      &:focus {
+        border-color: $Primary_color;
+        box-shadow: 0 0 0 3px $Primary_glow;
+        background: white;
+      }
+    }
+  }
+
+  .SubmitBtn {
+    margin-top: 0.5rem;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: $Primary_color;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px $Primary_glow;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px $Primary_glow;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .Message {
+    margin-top: 1.25rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.4;
+
+    &.Error {
+      background: rgba(220, 53, 69, 0.08);
+      color: #c92a2a;
+    }
+
+    &.Success {
+      background: rgba($Primary_color, 0.1);
+      color: #4d7d2b;
+    }
+  }
+
+  .ToggleBtn {
+    display: block;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $Primary_color;
+    text-align: center;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: darken($Primary_color, 12%);
+    }
+  }
+
+  // Responsive
+  @media (max-width: 480px) {
+    padding: 1rem 0.75rem;
+
+    .Card {
+      padding: 2rem 1.5rem;
+    }
+
+    .Title {
+      font-size: 1.6rem;
+    }
+
+    .Subtitle {
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+}
