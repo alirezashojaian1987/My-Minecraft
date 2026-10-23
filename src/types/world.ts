@@ -1,5 +1,5 @@
 export interface Coordinates{
-    id:string;
+    id:string | number;
     name:string;
     x:number;
     y:number;
@@ -7,7 +7,7 @@ export interface Coordinates{
 };
 
 export interface World{
-    id:string;
+    id:string | number;
     title:string;
     type:"Survival" | "Creative" | "Adventure" | "Hardcore";
     seed:string;
